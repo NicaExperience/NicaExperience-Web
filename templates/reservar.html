@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Experiencia</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>NicaExperience</h1>
+</header>
+
+<section class="reservas">
+
+    <h2>Reservar Experiencia</h2>
+
+       <form method="post" class="formulario">
+
+        {% csrf_token %}
+
+        {% if experiencia.id == 7 %}
+
+<h3>🌎 Seleccione el Lugar</h3>
+
+ <select name="lugar">
+    <option value="Volcán Masaya">🌋 Volcán Masaya</option>
+    <option value="Isla de Ometepe">🏝️ Isla de Ometepe</option>
+    <option value="Granada Colonial">⛪ Granada Colonial</option>
+    <option value="San Juan del Sur">🏖️ San Juan del Sur</option>
+    <option value="León Histórico">🦁 León Histórico</option>
+    
+ </select>
+
+ <br><br>
+
+ {% endif %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Confirmar Reserva
+        </button>
+
+    </form>
+
+</section>
+
+</body>
+</html>

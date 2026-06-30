@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso Reservas</title>
+</head>
+<body>
+
+<h2>🔒 Acceso Administrador</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <p>Usuario:</p>
+    <input type="text" name="usuario">
+
+    <p>Contraseña:</p>
+    <input type="password" name="password">
+
+    <br><br>
+
+    <button type="submit">
+        Ingresar
+    </button>
+
+</form>
+
+{% if error %}
+<p style="color:red;">
+    Usuario o contraseña incorrectos
+</p>
+{% endif %}
+
+</body>
+</html>

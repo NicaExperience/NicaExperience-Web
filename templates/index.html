@@ -1,0 +1,707 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NicaExperience</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+ </head>
+ <body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+
+    <img src="{% static 'imagenes/logo.jpg' %}" alt="NicaExperience">
+       
+ </div>
+
+    <nav>
+
+     <div class="dropdown">
+     <a href="#" onclick="toggleDropdown(event,'menu-inicio')">
+        Inicio <span>▼</span>
+     </a>
+
+     <div class="dropdown-content" id="menu-inicio">
+
+        <button class="submenu-btn" onclick="toggleSubmenu(event,'info-nica')">
+            🌎 ¿Qué es NicaExperience?
+        </button>
+
+     <div class="submenu-text" id="info-nica">
+            NicaExperience es una plataforma turística que promueve los destinos,
+            la cultura, la gastronomía y la medicina natural de Nicaragua,
+            conectando a los visitantes con experiencias auténticas.
+     </div>
+
+        <button class="submenu-btn" onclick="toggleSubmenu(event,'info-mision')">
+            🎯 Misión
+        </button>
+
+     <div class="submenu-text" id="info-mision">
+            Promover el turismo sostenible de Nicaragua mediante una plataforma
+            digital innovadora que conecte a los visitantes con experiencias
+            culturales y naturales.
+     </div>
+
+        <button class="submenu-btn" onclick="toggleSubmenu(event,'info-vision')">
+            👁️ Visión
+        </button>
+
+     <div class="submenu-text" id="info-vision">
+            Ser la plataforma turística digital líder de Nicaragua,
+            reconocida por impulsar el turismo responsable y fortalecer la identidad cultural.
+     </div>
+
+     </div>
+
+    </div>
+
+     <div class="dropdown">
+     <a href="#" onclick="toggleDropdown(event,'menu-destinos')">Destinos <span>▼</span>
+     </a>
+
+     <div class="dropdown-content" id="menu-destinos">
+
+        <a href="#">Volcan Masaya</a>
+        <a href="#">Granada</a>
+        <a href="#">León</a>
+        <a href="#">Ometepe</a>
+        <a href="#">San Juan del Sur</a>
+     </div>
+     </div>
+
+     <div class="dropdown">
+
+     <a href="#" onclick="toggleDropdown(event,'menu-gastronomia')">Gastronomía <span>▼</span>
+     </a>
+
+     <div class="dropdown-content" id="menu-gastronomia">
+
+        <a href="#">Comidas típicas</a>
+        <a href="#">Bebidas tradicionales</a>
+        <a href="#">Postres típicos</a>
+        <a href="#">Mercados gastronómicos</a>
+     </div>
+     </div>
+        
+        <div class="dropdown">
+
+    <a href="#" onclick="toggleDropdown(event,'menu-medicina')">
+        Medicina ▼
+    </a>
+
+    <div class="dropdown-content" id="menu-medicina">
+
+        <a href="#">🌿 Plantas medicinales</a>
+        <a href="#">🍵 Remedios tradicionales</a>
+        <a href="#">🌱 Medicina ancestral</a>
+        <a href="#">💚 Consejos naturales</a>
+    </div>
+    </div>
+
+        <div class="dropdown">
+
+    <a href="#" onclick="toggleDropdown(event,'menu-folklor')">
+        Folklor ▼
+    </a>
+
+    <div class="dropdown-content" id="menu-folklor">
+
+        <a href="#">🎭 Bailes tradicionales</a>
+        <a href="#">🎶 Música nicaragüense</a>
+        <a href="#">🎉 Fiestas patronales</a>
+        <a href="#">📖 Leyendas y tradiciones</a>
+     </div>
+     </div>
+
+        <div class="dropdown">
+
+    <a href="#" onclick="toggleDropdown(event,'menu-artesania')">
+        Artesanía ▼
+    </a>
+
+    <div class="dropdown-content" id="menu-artesania">
+
+        <a href="#">🏺 Cerámica de San Juan de Oriente</a>
+        <a href="#">🪵 Artesanías en madera</a>
+        <a href="#">🧶 Hamacas y textiles</a>
+        <a href="#">👜 Cuero y talabartería</a>
+        <a href="#">🎁 Souvenirs nicaragüenses</a>
+     </div>
+     </div>
+        
+        <div class="dropdown">
+
+    <a href="#" onclick="toggleDropdown(event,'menu-mapa')">
+        Mapa ▼
+    </a>
+
+    <div class="dropdown-content" id="menu-mapa">
+
+        <a href="#">🗺️ Mapa turístico</a>
+        <a href="#">📍 Ubicación de destinos</a>
+        <a href="#">🚗 Rutas recomendadas</a>
+        <a href="#">🚌 Transporte</a>
+     </div>
+     </div>
+
+        <div class="dropdown">
+
+    <a href="#" onclick="toggleDropdown(event,'menu-contacto')">
+        Contacto ▼
+    </a>
+
+    <div class="dropdown-content" id="menu-contacto">
+
+        <a href="#contacto">Facebook</a>
+        <a href="#contacto">TikTok</a>
+        <a href="#contacto">📱 WhatsApp</a>
+        <a href="#contacto">📍 Ubicación</a>
+        <a href="#contacto">Instagram</a>
+     </div>
+     </div>
+
+    </nav>
+    
+ </header> 
+
+<!-- HERO -->
+
+<section class="hero">
+
+ <h2>Descubre las Riquezas Naturales y Culturales de Nicaragua</h2>
+
+ <p>
+    Vive experiencias auténticas de Turismo, Tradición y Medicina Natural.
+ </p>
+      <a href="#" class="btn-explorar" onclick="toggleExplora(event)">
+    Explorar Nicaragua ▼
+</a>
+
+<div class="explora-texto" id="explora-texto">
+    <p>
+        Nicaragua un país lleno de volcanes, lagos, ciudades coloniales,
+        playas y una riqueza cultural única. Descubre su gastronomía,
+        medicina natural, artesanías y tradiciones a través de
+        NicaExperience, donde encontrarás los mejores destinos y
+        experiencias para vivir una aventura inolvidable.
+    </p>
+
+ </section>
+
+<!-- EXPERIENCIAS -->
+
+<section class="experiencias">
+
+    <h2>Experiencias culturales</h2>
+
+    <div class="cards">
+
+        {% for experiencia in experiencias %}
+
+        <div class="card">
+
+            <img src="{% static 'imagenes/' %}{{ experiencia.imagen }}" alt="{{ experiencia.titulo }}">
+
+            <div class="card-content">
+
+                <h3>{{ experiencia.titulo }}</h3>
+
+                <p>
+                    {{ experiencia.descripcion }}
+                </p>
+                
+                <div class="botones-card">
+                             
+               <a href="{% url 'reservar_experiencia' experiencia.id %}">
+                      <button>Reservar</button>
+                </a>
+                 
+             <a href="{% url 'detalle_experiencia' experiencia.id %}">
+                    <button>Ver más</button>
+              </a>      
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <p>No hay experiencias registradas.</p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+    <!-- PANEL DE NIKI -->
+
+<section class="niki-panel">
+
+    <h2>🐦 Niki, tu guía virtual</h2>
+
+    <p class="frase">
+        Descubre Nicaragua a través de destinos, gastronomía,
+        cultura, saberes ancestrales y experiencias auténticas.
+    </p>
+   
+    <div class="imagen-mascota">
+
+    <img
+    src="{% static 'imagenes/Niki.jpg' %}"
+    alt="Niki">
+
+  </div>
+
+  <div class="globo-niki" id="globo-niki" onclick="hablarNiki()">
+    👋 Hola, soy Niki. ¿Te ayudo a descubrir Nicaragua?
+</div>
+
+    <!-- RECOMENDACIONES -->
+
+    <div class="acciones-niki">
+
+        <button onclick="responderNiki('destino')">
+        🌋 Recomiéndame un destino
+    </button>
+
+    <button onclick="responderNiki('comida')">
+        🍲 Recomiéndame una comida típica
+    </button>
+
+    <button onclick="responderNiki('medicina')">
+        🌿 Medicina Natural
+    </button>
+
+    <button onclick="responderNiki('cultura')">
+        🎭 Folklor Nicaragüense
+    </button>
+
+    <button onclick="responderNiki('artesania')">
+        🛍️ Artesanías
+    </button>
+
+    <button onclick="responderNiki('festival')">
+        🎉 Festividades
+    </button>
+
+    <button onclick="responderNiki('curioso')">
+        💡 Dato curioso
+    </button>
+
+    <button onclick="responderNiki('sorpresa')">
+    🎲 Sorpresa de Niki
+    </button>
+
+</div>
+
+    <h3>💬 Respuesta de Niki</h3>
+
+    <div id="respuesta-niki" class="respuesta-niki">
+        
+    </div>
+
+    <!-- TARJETAS -->
+
+    <div class="tarjetas-niki">
+
+        <div class="info-mascota">
+
+            <h3>Estado de Niki</h3>
+
+            <p>🗺️ Exploración: 90%</p>
+            <progress value="90" max="100"></progress>
+
+            <p>🌿 Conocimiento: 85%</p>
+            <progress value="85" max="100"></progress>
+
+            <p>😊 Entusiasmo: 95%</p>
+            <progress value="95" max="100"></progress>
+
+        </div>
+
+        <div class="descripcion">
+
+            <h3>Sobre Niki 🌿</h3>
+
+            <p>
+                🌿 Guía virtual oficial de
+                <strong>NicaExperience</strong>.
+            </p>
+
+            <p>
+                🌋 Especializada en destinos turísticos,
+                gastronomía típica y medicina natural.
+            </p>
+
+            <p>
+                Listo para ayudarte a descubrir
+                lo mejor de Nicaragua.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ACCIONES -->
+
+    <div class="acciones">
+
+        <button>
+            🌋 Explorar Destinos
+        </button>
+
+        <button>
+            🍲 Gastronomía Típica
+        </button>
+
+        <button>
+            🌿 Medicina Natural
+        </button>
+
+        <button>
+            🗺️ Planificar Ruta
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ¿POR QUÉ ELEGIR NICAEXPERIENCE? -->
+
+ <section class="porque">
+
+    <h2>¿Por qué elegir NicaExperience?</h2>
+
+    <div class="porque-contenedor">
+    
+    <div class="porque-card">
+               
+    <h3>🌋 Turismo auténtico</h3>
+     <p>
+          Vive experiencias únicas recorriendo destinos naturales,
+         culturales y tradicionales de Nicaragua.
+    </p>
+    </div>
+
+    <div class="porque-card">
+    
+    <h3>🤖 Guía Virtual Niki</h3>
+     <p>
+         Niki te recomienda lugares, gastronomía,
+         medicina natural y tradiciones del país.
+    </p>
+     </div>
+
+     <div class="porque-card">
+     
+    <h3>📅 Reservas rápidas</h3>
+      <p>
+          Reserva fácilmente cada experiencia
+          desde su propia página.
+     </p>
+    </div>
+ 
+    <div class="porque-card">
+    
+    <h3>🤝 Apoyo local</h3>
+      <p>
+          Promovemos el turismo responsable,
+          la cultura y los emprendimientos nicaragüenses.
+     </p>
+    </div>
+
+    </div>
+
+  </section>
+
+<!-- MAPA -->
+
+<section class="mapa">
+
+    <h2>Mapa turístico</h2>
+
+    <div id="map"></div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>NicaExperience</h3>
+
+    <p>
+        Turismo cultural y comunitario en Nicaragua.
+    </p>
+
+    <div class="redes">
+
+        <a href="https://www.facebook.com/share/1AXcFW98z6/" target="_blank">
+        Facebook
+    </a>
+
+    <a href="https://www.instagram.com/nica.experience01?utm_source=qr&igsh=MWY0a2t2eTRmYnY1OA==" target="_blank">
+        Instagram
+    </a>
+
+    <a href="https://www.tiktok.com/@nicaexperience._1?_r=1&_t=ZS-97WKpNKN0Zo" target="_blank">
+    TikTok
+    </a>
+
+    </div>
+
+    <p class="copy">
+        © 2026 NicaExperience
+    </p>
+
+</footer>
+
+<!-- LEAFLET JS -->
+
+<script
+src="https://unpkg.com/leaflet/dist/leaflet.js">
+</script>
+
+<!-- JS -->
+
+<script src="{% static 'js/app.js' %}"></script>
+
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/50558680761?text=Hola quiero información sobre las experiencias culturales"
+class="whatsapp"
+target="_blank">
+
+    WhatsApp
+
+</a>
+
+<script>
+
+window.onload = function(){
+
+    let globo =
+    document.getElementById("globo-niki");
+    
+    let hora = new Date().getHours();
+
+if(hora < 12){
+
+    globo.innerHTML =
+    "☀️ Buenos días. Soy Niki. Bienvenido a NicaExperience, descubre lo mejor de Nicaragua.";
+
+}
+
+else if(hora < 18){
+
+    globo.innerHTML =
+    "🌤️ Buenas tardes. Soy Niki. Bienvenido a NicaExperience, descubre lo mejor de Nicaragua.";
+
+}
+
+else{
+
+    globo.innerHTML =
+    "🌙 Buenas noches. Soy Niki. Bienvenido a NicaExperience, descubre lo mejor de Nicaragua.";
+
+ }
+
+ // Cambia automáticamente el mensaje cada 8 segundos
+    setInterval(hablarNiki, 5000);
+
+ }
+
+ function responderNiki(tipo){
+
+ let respuesta =
+    document.getElementById("respuesta-niki");
+
+ 
+     if(tipo === "destino"){
+
+     respuesta.innerHTML =
+     "🌋 Te recomiendo visitar la Isla de Ometepe...";
+
+    }
+
+    else if(tipo === "comida"){
+
+        respuesta.innerHTML =
+        "🍲 Debes probar el vigorón, una de las comidas típicas más representativas de Nicaragua, preparada con yuca, chicharrón y ensalada.";
+
+    }
+
+     else if(tipo === "medicina"){
+
+    respuesta.innerHTML =
+    "🌿 La medicina natural utiliza plantas medicinales y remedios tradicionales que han sido transmitidos de generación en generación en Nicaragua.";
+
+    }
+
+     else if(tipo === "cultura"){
+
+        respuesta.innerHTML =
+        "🎭 Nicaragua posee una rica herencia cultural reflejada en sus danzas, música tradicional, leyendas y celebraciones populares.";
+
+    }
+
+     else if(tipo === "artesania"){
+
+        respuesta.innerHTML =
+        "🛍️ Descubre las artesanías elaboradas por manos nicaragüenses, como cerámica, hamacas, madera tallada y textiles tradicionales.";
+
+    }
+
+     else if(tipo === "festival"){
+
+        respuesta.innerHTML =
+        "🎉 Las fiestas patronales y festivales culturales muestran la identidad y alegría de las comunidades nicaragüenses.";
+
+    }
+
+     else if(tipo === "curioso"){
+
+        respuesta.innerHTML =
+        "💡 ¿Sabías que la Isla de Ometepe está formada por dos volcanes y es una de las islas volcánicas más grandes dentro de un lago de agua dulce?";
+
+    }
+
+     else if(tipo === "sorpresa"){
+
+     let sorpresas = [
+
+        "🌋 Te recomiendo visitar la Isla de Ometepe, uno de los destinos más emblemáticos de Nicaragua.",
+
+        "🍲 Prueba el vigorón, una deliciosa comida típica nicaragüense.",
+
+        "🎭 Descubre la obra El Güegüense, Patrimonio Cultural de la Humanidad.",
+
+        "🛍️ Conoce las artesanías de San Juan de Oriente, famosas por su cerámica.",
+
+        "🌿 Aprende sobre las plantas medicinales utilizadas por las comunidades locales.",
+
+        "🏞️ Explora la Reserva Natural Miraflor y disfruta de su biodiversidad."
+
+    ];
+
+     let numero =
+    Math.floor(Math.random() * sorpresas.length);
+
+    respuesta.innerHTML =
+    sorpresas[numero];
+
+   }
+
+}
+
+function hablarNiki(){
+
+    let globo =
+    document.getElementById("globo-niki");
+
+    let mensajes = [
+
+        "🌋 ¿Sabías que Nicaragua tiene más de 20 volcanes?",
+
+        "🍲 Te recomiendo probar el vigorón y el nacatamal.",
+
+        "🌿 Las comunidades conservan medicina natural únicas.",
+
+        "🎭 La cultura nicaragüense está llena de música y tradiciones.",
+
+        "🛍️ Apoya a los artesanos comprando productos locales.",
+
+        "🏞️ Explora la naturaleza y biodiversidad de Nicaragua.",
+
+        "🎲 ¡Tengo muchas recomendaciones para ti!"
+
+    ];
+
+    let numero =
+    Math.floor(Math.random() * mensajes.length);
+
+    globo.innerHTML =
+    mensajes[numero];
+
+ }
+
+ function toggleDropdown(event, menuId){
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    // Cierra todos los menús
+    document.querySelectorAll(".dropdown-content").forEach(function(menu){
+        if(menu.id !== menuId){
+            menu.classList.remove("mostrar");
+        }
+    });
+
+    // Abre o cierra el menú seleccionado
+    document.getElementById(menuId).classList.toggle("mostrar");
+
+}
+
+function toggleSubmenu(event, submenuId){
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    document.querySelectorAll(".submenu-text").forEach(function(texto){
+        if(texto.id !== submenuId){
+            texto.classList.remove("mostrar");
+        }
+    });
+
+    document.getElementById(submenuId).classList.toggle("mostrar");
+}
+
+function toggleExplora(event){
+    event.preventDefault();
+    document.getElementById("explora-texto").classList.toggle("mostrar");
+}
+
+ document.addEventListener("click", function(event){
+
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+    dropdowns.forEach(function(dropdown){
+
+        const menu = dropdown.querySelector(".dropdown-content");
+
+        if (!dropdown.contains(event.target)) {
+            menu.classList.remove("mostrar");
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

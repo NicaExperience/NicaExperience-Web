@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservas Realizadas</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<section class="reservas">
+
+   <h2>📋 Reservas Realizadas</h2>
+
+    <a href="{% url 'generar_pdf' %}">
+      <button>📄 Descargar PDF</button>
+</a>
+
+<br><br>
+
+    {% for reserva in reservas %}
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <h3>{{ reserva.nombre }}</h3>
+
+                <p>
+                    <strong>Código de Reserva:</strong>
+                    NICA-{{ reserva.id|stringformat:"04d" }}
+               </p>
+
+                <p>
+                    <strong>Estado:</strong>
+                    {{ reserva.estado }}
+               </p>
+
+                <p>
+                    <strong>Experiencia:</strong>
+                    {{ reserva.experiencia }}
+                </p>
+
+                <p>
+                    <strong>Lugar:</strong> 
+                    {{ reserva.lugar }}
+                </p>
+
+                <p>
+                    <strong>Correo:</strong>
+                    {{ reserva.correo }}
+                </p>
+
+                <p>
+                    <strong>Fecha:</strong>
+                    {{ reserva.fecha }}
+                </p>
+
+                <p>
+                    <strong>Personas:</strong>
+                    {{ reserva.personas }}
+                </p>
+
+                <p>
+                    <strong>Mensaje:</strong>
+                    {{ reserva.mensaje }}
+                </p>
+
+            </div>
+
+        </div>
+
+        <br>
+
+    {% empty %}
+
+        <p>No hay reservas registradas.</p>
+
+    {% endfor %}
+
+    <br>
+
+    <a href="/">
+        <button>Volver al inicio</button>
+    </a>
+
+</section>
+
+</body>
+</html>

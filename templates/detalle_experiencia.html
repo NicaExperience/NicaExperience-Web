@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ experiencia.titulo }}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="detalle-container">
+
+    <h1>{{ experiencia.titulo }}</h1>
+
+   <img
+   src="{% static 'imagenes/' %}{{ experiencia.imagen }}"
+   alt="{{ experiencia.titulo }}"
+   style="width:450px; height:auto; 
+   border-radius:15px;">
+
+    <div class="detalle-info">
+
+    <h3>📖 Descripción</h3>
+    <p>
+      {{ experiencia.descripcion }}
+    </p>
+     
+  {% if experiencia.id == 7 %}
+ 
+    <h3>ℹ️ Información de la experiencia</h3>
+
+  <ul class="lugares-turisticos">
+    <li>🌋 Volcán Masaya</li>
+    <li>🏝️ Isla de Ometepe</li>
+    <li>
+    <a href="{% url 'granada' %}">
+        ⛪ Granada Colonial
+    </a>
+</li>
+    <li>🏖️ San Juan del Sur</li>
+    <li>🦁 León Histórico</li>
+ </ul>
+
+ {% endif %}
+
+ </div>
+
+    <div class="detalle-botones">
+
+        <a href="/">
+            <button>Volver al inicio</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
