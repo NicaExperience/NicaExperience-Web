@@ -979,20 +979,21 @@ footer p{
 
 .info-experiencia{
 
-    display:flex;
-    justify-content:space-around;
-    flex-wrap:wrap;
-    margin-top:30px;
-    margin-bottom:30px;
-    padding:20px;
-    border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .info-experiencia div{
 
-    text-align:center;
-    min-width:200px;
+    flex: 1;
+    text-align: center;
 }
 
 .info-experiencia h4{
@@ -1058,6 +1059,26 @@ footer p{
 }
 
 .galeria-granada img:hover{
+    transform: scale(1.05);
+}
+
+.galeria-volcan{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.galeria-volcan img{
+    width: 220px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.galeria-volcan img:hover{
     transform: scale(1.05);
 }
 
@@ -1233,4 +1254,14 @@ nav{
 
 .explora-texto.mostrar{
     display:block;
+}
+
+.recomendacion-lista{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recomendacion-lista li{
+    margin: 10px 0;
 }

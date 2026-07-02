@@ -7,7 +7,8 @@ from .views import (
     lista_reservas,
     generar_pdf,
     login_reservas,
-    granada
+    granada,
+    volcan_masaya
 )
 
 urlpatterns = [
@@ -49,7 +50,15 @@ path(
      name='granada'
     ),
 
+path(
+    'volcan-masaya/',
+    volcan_masaya,
+    name='volcan_masaya'
+    ),
+
 ]
+
+
 
 
 
