@@ -8,7 +8,7 @@ from .views import (
     generar_pdf,
     login_reservas,
     granada,
-    volcan_masaya
+    masaya
 )
 
 urlpatterns = [
@@ -51,9 +51,9 @@ path(
     ),
 
 path(
-    'volcan-masaya/',
-    volcan_masaya,
-    name='volcan_masaya'
+    'masaya/',
+    masaya,
+    name='masaya'
     ),
 
 ]

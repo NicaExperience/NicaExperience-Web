@@ -221,11 +221,11 @@ def granada(request):
         'granada.html'
     )
 
-def volcan_masaya(request):
+def masaya(request):
 
     return render(
       request,
-     'volcan_masaya.html'
+     'masaya.html'
     )
 
 
