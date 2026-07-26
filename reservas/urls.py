@@ -8,7 +8,8 @@ from .views import (
     generar_pdf,
     login_reservas,
     granada,
-    masaya
+    masaya,
+    rivas
 )
 
 urlpatterns = [
@@ -54,6 +55,12 @@ path(
     'masaya/',
     masaya,
     name='masaya'
+    ),
+
+path(
+    'rivas/',
+    rivas,  
+    name='rivas'
     ),
 
 ]

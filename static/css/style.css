@@ -1264,3 +1264,38 @@ nav {
 .recomendacion-lista li {
     margin: 10px 0;
 }
+
+.encabezado-departamento{
+    text-align:center;
+    padding:50px 20px;
+    background:linear-gradient(90deg,#00695c,#1565c0);
+    color:white;
+}
+
+.descripcion-rivas{
+    max-width:1000px;
+    margin:40px auto;
+    padding:0 20px;
+    text-align:center;
+}
+
+.lugares-rivas{
+    max-width:1000px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.lugares-rivas h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.lugares-rivas ul{
+    list-style:none;
+    padding:0;
+}
+
+.lugares-rivas li{
+    font-size:22px;
+    margin:15px 0;
+} 

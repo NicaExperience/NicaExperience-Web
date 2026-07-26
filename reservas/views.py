@@ -228,7 +228,7 @@ def masaya(request):
      'masaya.html'
     )
 
-
+def rivas(request) : return render(request,'rivas.html')
 
 
 
