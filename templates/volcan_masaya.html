@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Volcán Masaya | NicaExperience</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="detalle-container">
+
+    <h1>🌋 Volcán Masaya</h1>
+
+    <img
+    src="{% static 'imagenes/volcan_masaya.jpg' %}"
+    alt="Volcan Masaya"
+    style="width:400px; height:auto; border-radius:15px;">
+
+    <div class="detalle-info">
+
+        <h3>📖 Descripción</h3>
+
+        <p>
+            El Volcán Masaya, ubicado en el Parque Nacional Volcán Masaya, es uno 
+            de los volcanes activos más impresionantes de Nicaragua y uno de los 
+            pocos en el mundo donde es posible observar un lago de lava desde un 
+            mirador seguro. Este destino ofrece una experiencia única que combina 
+            naturaleza, aventura, geología y biodiversidad.
+        </p>
+
+  <h3>ℹ️ Información </h3>
+
+    <div class="info-experiencia">
+
+    <div>
+        <h4>📍 Ubicación</h4>
+        <p>Parque Nacional Volcan Masaya, Masaya, Nicaragua</p>
+
+    </div>
+
+    <div>
+        <h4>🕒 Duración</h4>
+        <p>3 - 4 horas</p>
+    </div>
+
+    <div>
+        <h4>💰 Precio</h4>
+        <p>C$ 350 por persona</p>
+    </div>
+
+    </div>
+    
+     <hr>
+
+ <h3>📍 Descubre lo mejor del Volcan Masaya</h3>
+
+ <div class="lugares-volcan">
+
+    <p>🌋 Observa el impresionante Cráter Santiago y su actividad volcánica.</p>
+
+    <p>👀 Disfruta de las vistas desde el Mirador del Volcán Masaya.</p>
+
+    <p>🦇 Visita la famosa Cueva de los Murciélagos.</p>
+
+    <p>🥾 Recorre el Sendero El Comalito rodeado de naturaleza.</p>
+
+    <p>🌿 Conoce la historia del parque en el Museo del Volcán Masaya.</p>
+
+ </div>
+
+ <h3>🖼️ Galería de imágenes</h3>
+
+ <div class="galeria-volcan">
+
+    <img src="{% static 'imagenes/crater.jpg' %}" alt="Crater Santiago">
+
+    <img src="{% static 'imagenes/mirador.jpg' %}" alt="Mirador del Crater">
+
+    <img src="{% static 'imagenes/cueva.jpg' %}" alt="Cueva de los Murciélagos">
+
+    <img src="{% static 'imagenes/sendero.jpg' %}" alt="Sendero el Comalito">
+
+    <img src="{% static 'imagenes/museo.jpg' %}" alt="Museo del Parque Nacional">
+
+ </div>
+<hr>
+
+ <div class="recomendacion">
+
+    <h3>💡 Recomendación</h3>
+
+    <ul class="recomendacion-lista">
+        <li>🥾 Llevar ropa y calzado cómodo.</li>
+        <li>🧴 Usar protector solar.</li>
+        <li>💧 Llevar suficiente agua.</li>
+        <li>🚶 No salir de los senderos autorizados.</li>
+        <li>🛡️ Respetar las indicaciones de los guardaparques.</li>
+        <li>⚠️ Evitar acercarse a zonas restringidas.</li>
+    </ul>
+
+</div>
+    <div class="detalle-botones">
+
+       <button onclick="history.back()">
+    ⬅️ Volver
+
+ </butto>
+    
+    </div>
+
+</div>
+
+</body>
+</html>

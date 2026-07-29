@@ -1299,3 +1299,61 @@ nav {
     font-size:22px;
     margin:15px 0;
 } 
+
+.descripcion-rivas,
+.descripcion-masaya{
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.detalle-container h1{
+    font-size: 40px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+}
+
+.detalle-container img{
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.detalle-info{
+    margin-top: 20px;
+}
+
+.detalle-info h3{
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.detalle-info p{
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.info-grid{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.info-item{
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    width: 220px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+

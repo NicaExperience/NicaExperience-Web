@@ -228,9 +228,19 @@ def masaya(request):
      'masaya.html'
     )
 
-def rivas(request) : return render(request,'rivas.html')
+def rivas(request): 
+    
+    return render(
+       request,
+       'rivas.html'
+    )
 
+def volcan_masaya(request):
 
+    return render(
+      request, 
+      'volcan_masaya.html'
+    )
 
 
 
