@@ -1356,4 +1356,24 @@ nav {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.lugares-masaya{
+    max-width:1000px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.lugares-masaya h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.lugares-masaya ul{
+    list-style:none;
+    padding:0;
+}
+
+.lugares-masaya li{
+    font-size:22px;
+    margin:15px 0;
+}
 
