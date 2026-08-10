@@ -1,5 +1,6 @@
 const map = L.map('map').setView([12.8, -85.0], 7);
 const departamentos = L.layerGroup().addTo(map);
+let departamentoActivo = false;
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution:'OpenStreetMap'
@@ -65,22 +66,29 @@ L.marker([11.9698, -86.0978])
 L.marker([11.9730, -86.0965])
     .bindPopup('<b>🎨 Talleres de Artesanía</b>')
     .addTo(lugaresMasaya);
+
 // Marcador del departamento
 L.marker([11.9744, -86.0942])
     .addTo(departamentos)
     .bindPopup("<b>📍 Masaya</b><br>Haz clic para explorar sus lugares turísticos.")
     .on("click", function () {
 
-        // Ocultar los departamentos
-        map.removeLayer(departamentos);
+    // Evita ejecutar la acción varias veces
+    if (departamentoActivo) return;
 
-        // Acercamiento con animación
-        map.flyTo([11.9744, -86.0942], 12, {
-            duration: 2
-        });
+    departamentoActivo = true;
 
-        // Mostrar los lugares turísticos
-        lugaresMasaya.addTo(map);
+    map.removeLayer(departamentos);
+
+    map.flyTo([11.9744, -86.0942], 12, {
+        duration: 1.5
+    });
+
+    lugaresMasaya.addTo(map);
+
+    console.log("Entró a Masaya");
+
+    botonVolver.addTo(map);
 
     });
         
@@ -113,3 +121,24 @@ L.marker([11.2586, -84.7770])
 L.marker([12.1500, -83.7500])
 .addTo(departamentos)
 .bindPopup("<b>Costa Caribe</b><br>Cultura y playas del Caribe");
+
+function volverNicaragua() {
+
+    // Ocultar los lugares turísticos
+    map.removeLayer(lugaresMasaya);
+
+    // Mostrar los departamentos
+    departamentos.addTo(map);
+
+    // Regresar al mapa de Nicaragua
+    map.flyTo([12.8, -85.0], 7, {
+        duration: 2
+    });
+
+    // Permitir volver a entrar a un departamento
+    departamentoActivo = false;
+
+    // Ocultar el botón
+    map.removeControl(botonVolver);
+
+}

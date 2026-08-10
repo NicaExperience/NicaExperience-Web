@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from reportlab.pdfgen import canvas
 from datetime import datetime
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login
 from .forms import ReservaForm
 from .models import Experiencia, Reserva
 
@@ -70,8 +71,10 @@ def reservar_experiencia(request, id):
 
 
 def lista_reservas(request):
-    if not request.session.get("admin"):
-       return redirect("login_reservas")
+
+    if not request.user.is_authenticated:
+        return redirect("login_reservas")
+
     reservas = Reserva.objects.all().order_by('-fecha_creacion')
 
     return render(
@@ -197,12 +200,18 @@ def login_reservas(request):
 
     if request.method == "POST":
 
-        usuario = request.POST.get("usuario")
+        usuario = request.POST.get("username")
         password = request.POST.get("password")
 
-        if usuario == "admin" and password == "1234":
+        user = authenticate(
+            request,
+            username=usuario,
+            password=password
+        )
 
-            request.session["admin"] = True
+        if user is not None:
+
+            login(request, user)
 
             return redirect("lista_reservas")
 
