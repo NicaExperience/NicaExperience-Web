@@ -3,6 +3,7 @@ from reportlab.pdfgen import canvas
 from datetime import datetime
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from .forms import ReservaForm
 from .models import Experiencia, Reserva
 
@@ -223,6 +224,21 @@ def login_reservas(request):
 
     return render(request, "login.html")
 
+def lista_usuarios(request):
+
+    if not request.user.is_authenticated:
+        return redirect("login_reservas")
+
+    usuarios = User.objects.all().order_by('username')
+
+    return render(
+        request,
+        'lista_usuarios.html',
+        {
+            'usuarios': usuarios
+        }
+    )
+
 def granada(request):
 
      return render(
@@ -244,15 +260,54 @@ def rivas(request):
        'rivas.html'
     )
 
-def volcan_masaya(request):
+def leon_historico(request):
 
     return render(
       request, 
-      'volcan_masaya.html'
+      'leon_historico.html'
     )
 
+def managua(request):
 
+    return render(
+      request, 
+      'managua.html'
+    )
 
+def matagalpa(request):
+
+    return render(
+      request, 
+      'matagalpa.html'
+    )
+
+def jinotega(request):
+
+    return render(
+      request, 
+      'jinotega.html'
+    )
+
+def rio_san_juan(request):
+
+    return render(
+      request, 
+      'rio_san_juan.html'
+    )
+
+def chinandega(request):
+
+    return render(
+      request, 
+      'chinandega.html'
+    )
+
+def costa_caribe(request):
+
+    return render(
+      request, 
+      'costa_caribe.html'
+    )
 
 
 

@@ -7,10 +7,18 @@ from .views import (
     lista_reservas,
     generar_pdf,
     login_reservas,
+    lista_usuarios,
     granada,
     masaya,
     rivas,
-    volcan_masaya
+    leon_historico,
+    managua,
+    matagalpa,
+    jinotega,
+    rio_san_juan,
+    chinandega,
+    costa_caribe,
+    
 )
 
 urlpatterns = [
@@ -41,6 +49,12 @@ path(
      ),
 
 path(
+    'usuarios/',
+    lista_usuarios,
+    name='lista_usuarios'
+     ),
+
+path(
      'pdf/',
      generar_pdf,
     name='generar_pdf'
@@ -65,9 +79,45 @@ path(
     ),
 
 path(
-    'volcan-masaya/',
-    volcan_masaya,
-    name='volcan_masaya'
+    'leon_historico/',
+    leon_historico,
+    name='leon_historico'
+    ),
+
+path(
+    'managua/',
+    managua,
+    name='managua'
+    ),
+
+path(
+    'matagalpa/',
+    matagalpa,
+    name='matagalpa'
+    ),
+
+path(
+    'jinotega/',
+    jinotega,
+    name='jinotega'
+    ),
+
+path(
+    'rio_san_juan/',
+    rio_san_juan,
+    name='rio_san_juan'
+    ),
+
+path(
+    'chinandega/',
+    chinandega,
+    name='chinandega'
+    ),
+
+path(
+    'costa_caribe/',
+    costa_caribe,
+    name='costa_caribe'
     ),
 
 ]
