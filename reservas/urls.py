@@ -7,7 +7,9 @@ from .views import (
     lista_reservas,
     generar_pdf,
     login_reservas,
+    cerrar_sesion,
     lista_usuarios,
+    crear_usuario,
     granada,
     masaya,
     rivas,
@@ -47,6 +49,12 @@ path(
     login_reservas,
     name='login_reservas'
      ),
+
+path(
+    'logout/',
+    cerrar_sesion,
+    name='cerrar_sesion'
+),
 
 path(
     'usuarios/',

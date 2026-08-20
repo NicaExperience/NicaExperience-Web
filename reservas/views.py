@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from reportlab.pdfgen import canvas
 from datetime import datetime
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .forms import ReservaForm
 from .models import Experiencia, Reserva
@@ -224,6 +224,10 @@ def login_reservas(request):
 
     return render(request, "login.html")
 
+def cerrar_sesion(request):
+    logout(request)
+    return redirect("login_reservas")
+
 def lista_usuarios(request):
 
     if not request.user.is_authenticated:
@@ -236,6 +240,49 @@ def lista_usuarios(request):
         'lista_usuarios.html',
         {
             'usuarios': usuarios
+        }
+    )
+
+def crear_usuario(request):
+
+    if not request.user.is_authenticated:
+        return redirect("login_reservas")
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        User.objects.create_user(
+            username=username,
+            email=email,
+            password=password
+        )
+
+        return redirect("lista_usuarios")
+
+    return render(request, "crear_usuario.html")
+    
+def editar_usuario(request, id):
+    if not request.user.is_authenticated:
+        return redirect("login_reservas")
+
+    usuario = User.objects.get(id=id)
+
+    if request.method == "POST":
+        usuario.username = request.POST.get("username")
+        usuario.first_name = request.POST.get("first_name")
+        usuario.last_name = request.POST.get("last_name")
+        usuario.email = request.POST.get("email")
+        usuario.save()
+
+        return redirect("lista_usuarios")
+
+    return render(
+        request,
+        "editar_usuario.html",
+        {
+            "usuario": usuario
         }
     )
 
