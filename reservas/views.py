@@ -86,6 +86,57 @@ def lista_reservas(request):
         }
     )
 
+def editar_reserva(request, id):
+
+    if not request.user.is_authenticated:
+        return redirect("login_reservas")
+
+    reserva = get_object_or_404(Reserva, id=id)
+
+    if request.method == "POST":
+
+        reserva.nombre = request.POST.get("nombre")
+        reserva.correo = request.POST.get("correo")
+        reserva.fecha = request.POST.get("fecha")
+        reserva.personas = request.POST.get("personas")
+        reserva.mensaje = request.POST.get("mensaje")
+        reserva.estado = request.POST.get("estado")
+        reserva.lugar = request.POST.get("lugar")
+
+        reserva.save()
+
+        return redirect("lista_reservas")
+
+    return render(
+        request,
+        "editar_reserva.html",
+        {
+            "reserva": reserva
+        }
+    )
+
+
+def eliminar_reserva(request, id):
+
+    if not request.user.is_authenticated:
+        return redirect("login_reservas")
+
+    reserva = get_object_or_404(Reserva, id=id)
+
+    if request.method == "POST":
+
+        reserva.delete()
+
+        return redirect("lista_reservas")
+
+    return render(
+        request,
+        "eliminar_reserva.html",
+        {
+            "reserva": reserva
+        }
+    )
+
 def generar_pdf(request):
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = (
@@ -215,7 +266,6 @@ def login_reservas(request):
             login(request, user)
 
             return redirect("lista_reservas")
-
         return render(
             request,
             "login.html",
@@ -261,7 +311,7 @@ def crear_usuario(request):
 
         return redirect("lista_usuarios")
 
-    return render(request, "crear_usuario.html")
+    return render(request,"crear_usuario.html")
     
 def editar_usuario(request, id):
     if not request.user.is_authenticated:
@@ -286,6 +336,25 @@ def editar_usuario(request, id):
         }
     )
 
+def eliminar_usuario(request, id):
+
+    if not request.user.is_authenticated:
+        return redirect("login_reservas")
+
+    usuario = User.objects.get(id=id)
+
+    if request.method == "POST":
+        usuario.delete()
+        return redirect("lista_usuarios")
+
+    return render(
+        request,
+        "eliminar_usuario.html",
+        {
+            "usuario": usuario
+        }
+    )
+
 def granada(request):
 
      return render(
@@ -299,6 +368,13 @@ def masaya(request):
       request,
      'masaya.html'
     )
+
+def volcan_masaya(request):
+    return render(
+        request,
+        'volcan_masaya.html'
+    )
+
 
 def rivas(request): 
     

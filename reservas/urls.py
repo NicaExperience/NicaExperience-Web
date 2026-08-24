@@ -5,13 +5,18 @@ from .views import (
     detalle_experiencia,
     reservar_experiencia,
     lista_reservas,
+    editar_reserva,
+    eliminar_reserva,
     generar_pdf,
     login_reservas,
     cerrar_sesion,
     lista_usuarios,
     crear_usuario,
+    editar_usuario,
+    eliminar_usuario,
     granada,
     masaya,
+    volcan_masaya,
     rivas,
     leon_historico,
     managua,
@@ -45,6 +50,18 @@ urlpatterns = [
     ),
 
 path(
+    'reservas/editar/<int:id>/',
+    editar_reserva,
+    name='editar_reserva'
+     ),
+
+path(
+    'reservas/eliminar/<int:id>/',
+    eliminar_reserva,
+    name='eliminar_reserva'
+    ),
+
+path(
     'login/',
     login_reservas,
     name='login_reservas'
@@ -60,6 +77,24 @@ path(
     'usuarios/',
     lista_usuarios,
     name='lista_usuarios'
+     ),
+
+path(
+    'usuarios/crear/',
+    crear_usuario,
+    name='crear_usuario'
+    ),
+
+path(
+    'usuarios/editar/<int:id>/',
+    editar_usuario,
+    name='editar_usuario'
+    ),
+
+path(
+    'usuarios/eliminar/<int:id>/',
+    eliminar_usuario,
+    name='eliminar_usuario'
      ),
 
 path(
@@ -127,6 +162,12 @@ path(
     costa_caribe,
     name='costa_caribe'
     ),
+
+path(
+    'volcan_masaya/',
+    volcan_masaya,
+    name='volcan_masaya'
+     ),
 
 ]
 

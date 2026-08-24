@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Reserva - NicaExperience</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .contenedor {
+            max-width: 500px;
+            margin: 80px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #b91c1c;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        .boton-eliminar {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .boton-cancelar {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 10px 18px;
+            background: #64748b;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>🗑️ Eliminar Reserva</h1>
+
+    <p>
+        ¿Estás seguro de que deseas eliminar la reserva de
+        <strong>{{ reserva.nombre }}</strong>?
+    </p>
+
+    <p>
+        <strong>Código:</strong>
+        NICA-{{ reserva.id|stringformat:"04d" }}
+    </p>
+
+    <p>
+        Esta acción no se puede deshacer.
+    </p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <button type="submit" class="boton-eliminar">
+            🗑️ Sí, eliminar
+        </button>
+
+        <a href="{% url 'lista_reservas' %}" class="boton-cancelar">
+            Cancelar
+        </a>
+
+    </form>
+
+</div>
+
+</body>
+</html>

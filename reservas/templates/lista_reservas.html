@@ -68,6 +68,16 @@
                     {{ reserva.mensaje }}
                 </p>
 
+                <p>
+    <a href="{% url 'editar_reserva' reserva.id %}">
+        <button>✏️ Editar</button>
+    </a>
+
+    <a href="{% url 'eliminar_reserva' reserva.id %}">
+        <button>🗑️ Eliminar</button>
+    </a>
+</p>
+
             </div>
 
         </div>
