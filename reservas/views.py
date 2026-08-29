@@ -73,7 +73,7 @@ def reservar_experiencia(request, id):
 
 def lista_reservas(request):
 
-    if not request.user.is_authenticated:
+    if not request.user.is_staff:
         return redirect("login_reservas")
 
     reservas = Reserva.objects.all().order_by('-fecha_creacion')
@@ -88,7 +88,7 @@ def lista_reservas(request):
 
 def editar_reserva(request, id):
 
-    if not request.user.is_authenticated:
+    if not request.user.is_staff:
         return redirect("login_reservas")
 
     reserva = get_object_or_404(Reserva, id=id)
@@ -118,7 +118,7 @@ def editar_reserva(request, id):
 
 def eliminar_reserva(request, id):
 
-    if not request.user.is_authenticated:
+    if not request.user.is_staff:
         return redirect("login_reservas")
 
     reserva = get_object_or_404(Reserva, id=id)
@@ -280,7 +280,7 @@ def cerrar_sesion(request):
 
 def lista_usuarios(request):
 
-    if not request.user.is_authenticated:
+    if not request.user.is_staff:
         return redirect("login_reservas")
 
     usuarios = User.objects.all().order_by('username')

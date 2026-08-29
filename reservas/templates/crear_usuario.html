@@ -2,95 +2,83 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Crear Usuario - NicaExperience">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f7f8;
-            margin: 0;
-            padding: 30px;
-        }
-
-        .contenedor {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            color: #155e75;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
-
-        .boton {
-            margin-top: 25px;
-            background: #0f766e;
-            color: white;
-            border: none;
-            padding: 11px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .volver {
-            display: inline-block;
-            margin-left: 10px;
-            color: #155e75;
-            text-decoration: none;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Usuario - NicaExperience</title>
 </head>
 
-<body>
+<body style="font-family: Arial; background-color: #f4f7f8; padding: 40px;">
 
-<div class="contenedor">
+    <div style="
+        max-width: 500px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    ">
 
-    <h1>➕ Crear Usuario</h1>
+        <h1 style="color:#155e75; text-align:center;">
+            Crear Usuario
+        </h1>
 
-    <form method="POST">
+        <form method="POST">
 
-        {% csrf_token %}
+            {% csrf_token %}
 
-        <label>Usuario</label>
-        <input type="text" name="username" required>
+            <p>
+                <label>Usuario:</label><br>
+                <input 
+                    type="text" 
+                    name="username" 
+                    required
+                    style="width:100%; padding:10px; box-sizing:border-box;"
+                >
+            </p>
 
-        <label>Correo electrónico</label>
-        <input type="email" name="email" required>
+            <p>
+                <label>Correo electrónico:</label><br>
+                <input 
+                    type="email" 
+                    name="email" 
+                    required
+                    style="width:100%; padding:10px; box-sizing:border-box;"
+                >
+            </p>
 
-        <label>Contraseña</label>
-        <input type="password" name="password" required>
+            <p>
+                <label>Contraseña:</label><br>
+                <input 
+                    type="password" 
+                    name="password" 
+                    required
+                    style="width:100%; padding:10px; box-sizing:border-box;"
+                >
+            </p>
 
-        <button type="submit" class="boton">
-            Crear usuario
-        </button>
+            <button 
+                type="submit"
+                style="
+                    background:#0f766e;
+                    color:white;
+                    border:none;
+                    padding:12px 20px;
+                    border-radius:6px;
+                    cursor:pointer;
+                "
+            >
+                Crear usuario
+            </button>
 
-        <a href="{% url 'lista_usuarios' %}" class="volver">
-            Cancelar
-        </a>
+            <a 
+                href="{% url 'lista_usuarios' %}"
+                style="margin-left:15px;"
+            >
+                Cancelar
+            </a>
 
-    </form>
+        </form>
 
-</div>
+    </div>
 
 </body>
 </html>
