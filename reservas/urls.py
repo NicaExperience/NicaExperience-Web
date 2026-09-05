@@ -1,4 +1,5 @@
 from django.urls import path
+from . import api_views
 
 from .views import (
     inicio,
@@ -168,6 +169,24 @@ path(
     volcan_masaya,
     name='volcan_masaya'
      ),
+
+path(
+    'api/experiencias/',
+    api_views.api_experiencias,
+    name='api_experiencias'
+),
+
+path(
+    'api/experiencias/<int:id>/',
+    api_views.api_experiencia_detalle,
+    name='api_experiencia_detalle'
+),
+
+path(
+    'api/reservas/',
+    api_views.api_reservas,
+    name='api_reservas'
+),
 
 ]
 
