@@ -1,3 +1,17 @@
 
 _pycache_/
 *.py[cod]
+
+# Base de datos local
+db.sqlite3
+db.sqlite3-journal
+
+# Variables y secretos
+.env
+.env.*
+
+# Archivos de respaldo
+settings_respaldo.txt
+
+# Archivos generados
+staticfiles/
